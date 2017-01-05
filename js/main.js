@@ -5,32 +5,35 @@ var score = $("#campo-score");
 
 function constroiURL(){
 	event.preventDefault();
-	var valorPage = validaPage();
-	var valorRpp = validaRpp();
 	var valorSort = sort.val();
-	var and = '';
-
-	if(valorPage!=''&&valorRpp!=''){
-		and = "&";
-	}
-	return "https://api.stackexchange.com/2.2/questions?"+valorPage+""+and+""+valorRpp+""+and+"order=desc&sort="+valorSort+"&site=stackoverflow";
+	return "https://api.stackexchange.com/2.2/questions?"+validaPreenchimentoCampos()+"order=desc&sort="+valorSort+"&site=stackoverflow";
 }
 
-function validaPage(){
+function validaPreenchimentoCampos(){
 	var valorPage = page.val();
-	if (valorPage!='' && valorPage>0) {
-		return "page="+valorPage;
-	}else{
+	var valorRpp = rpp.val();
+	if(validaPage(valorPage) && validaRpp(valorRpp)){
+		return "page="+valorPage+"&pagesize="+valorRpp+"&";
+	}else if(valorPage!=''||valorRpp!=''){
+		alert("Os campos Page e RPP devem possui valores maiores do que 0, caso um deles seja preenchido o outro também deverá ser preenchido");
 		return '';
+	}
+
+}
+
+function validaPage(valorPage){
+	if (valorPage!='' && valorPage>0) {
+		return true;
+	}else{
+		return false;
 	}
 }
 
-function validaRpp(){
-	var valorRpp = rpp.val();
+function validaRpp(valorRpp){
 	if (valorRpp!='' && valorRpp>0) {
-		return "pagesize="+valorRpp;
+		return true;
 	}else{
-		return '';
+		return false;
 	}
 }
 

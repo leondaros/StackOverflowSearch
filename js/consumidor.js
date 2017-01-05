@@ -1,11 +1,10 @@
 $(function(){
-	var url = $(".botao-busca").click(consomeAPI);
+	$(".botao-busca").click(consomeAPI);
 });
 
-function consomeAPI(url){
+function consomeAPI(){
 	event.preventDefault();
 	$.get(constroiURL(),function(data){
-		console.log(data);
 		atualizaTabela(data.items);
 	});
 }
