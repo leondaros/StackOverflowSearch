@@ -4,13 +4,15 @@ $(function(){
 
 function consomeAPI(url){
 	event.preventDefault();
-	$.get(""+constroiURL(),function(data){
+	$.get(constroiURL(),function(data){
 		console.log(data.items);
+		atualizaTabela(data.items);
 	});
 }
 
-function converteDados(items){
-	for (var i = 0; i >= items.length; i++) {
-		//	
+function atualizaTabela(items){
+	limpaTabela();
+	for (var i = 0; i < items.length; i++) {
+		criaNovaLinha(items[i].title,items[i].owner.display_name,items[i].score,items[i].owner.link,items[i].link);	
 	}
 }

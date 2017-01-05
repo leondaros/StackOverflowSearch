@@ -13,7 +13,6 @@ function constroiURL(){
 	if(valorPage!=''&&valorRpp!=''){
 		and = "&";
 	}
-
 	return "https://api.stackexchange.com/2.2/questions?"+valorPage+""+and+""+valorRpp+""+and+"order=desc&sort="+valorSort+"&site=stackoverflow";
 }
 
@@ -43,13 +42,13 @@ function insereElemento(novaLinha){
 }
 
 function criaNovaLinha(titulo,autor,score,linkAutor,linkPergunta){
-	var linha = $("<tr>");
-	var colunaTitulo = $("<td>").text(titulo);
-	var colunaAutor = $("<td>").text(autor);
+	var linha = $("<tr>").addClass("pergunta");
+	var colunaTitulo = $("<td>");
+	var colunaAutor = $("<td>");
 	var colunaScore = $("<td>").text(score);
 
-	var linkColunaAutor = $("<a>").attr("href",linkAutor);
-	var linkColunaPergunta = $("<a>").attr("href",linkPergunta);
+	var linkColunaAutor = $("<a>").attr("href",linkAutor).text(autor);
+	var linkColunaPergunta = $("<a>").attr("href",linkPergunta).text(titulo);
 
 	colunaAutor.append(linkColunaAutor);
 	colunaTitulo.append(linkColunaPergunta);
@@ -59,4 +58,13 @@ function criaNovaLinha(titulo,autor,score,linkAutor,linkPergunta){
 	linha.append(colunaScore);
 
 	insereElemento(linha);
+}
+
+function limpaTabela(){
+	$("tbody").empty();
+	//var myNode = document.getElementsByTagName("tbody");
+	//myNode.remove();
+	//while (myNode.firstChild) {
+    //	myNode.removeChild(myNode.firstChild);
+	//}
 }
