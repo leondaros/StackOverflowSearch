@@ -12,15 +12,21 @@
 					<h3>Buscar na API</h3>
 					<fieldset>
 						<label>Page</label>
-						<input id="campo-page" type="number">
+						<input id="campo-page" type="number" min="1">
 					</fieldset>
 					<fieldset>
 						<label>RPP</label>
-						<input id="campo-rpp" type="number">
+						<input id="campo-rpp" type="number" min="1">
 					</fieldset>
 					<fieldset>
 						<label>Sort</label>
-						<input id="campo-sort" type="text">
+						<select id="campo-sort">
+						  <option value="activity" selected>Activity</option>
+						  <option value="creation">Creation</option>
+						  <option value="votes">Votes</option>
+						  <option value="week">Week</option>
+						  <option value="month">Month</option>
+						</select>
 					</fieldset>
 					<fieldset>
 						<label>Score</label>
@@ -43,5 +49,7 @@
 				</table>
 			</section>
 		</div>
+		<script src="js/jquery-3.1.1.js"></script>
+		<script src="js/main.js"></script>
 	</body>
 </html>
