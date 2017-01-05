@@ -5,7 +5,7 @@ $(function(){
 function consomeAPI(url){
 	event.preventDefault();
 	$.get(constroiURL(),function(data){
-		console.log(data.items);
+		console.log(data);
 		atualizaTabela(data.items);
 	});
 }
@@ -13,6 +13,8 @@ function consomeAPI(url){
 function atualizaTabela(items){
 	limpaTabela();
 	for (var i = 0; i < items.length; i++) {
-		criaNovaLinha(items[i].title,items[i].owner.display_name,items[i].score,items[i].owner.link,items[i].link);	
+		if(filtraScore(items[i].score)){
+			criaNovaLinha(items[i].title,items[i].owner.display_name,items[i].score,items[i].owner.link,items[i].link);	
+		}
 	}
 }

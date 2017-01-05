@@ -62,9 +62,13 @@ function criaNovaLinha(titulo,autor,score,linkAutor,linkPergunta){
 
 function limpaTabela(){
 	$("tbody").empty();
-	//var myNode = document.getElementsByTagName("tbody");
-	//myNode.remove();
-	//while (myNode.firstChild) {
-    //	myNode.removeChild(myNode.firstChild);
-	//}
+}
+
+function filtraScore(scoreBusca){
+	var valorScore = score.val();
+	if(valorScore<=scoreBusca){
+		return true;
+	}else{
+		return false;
+	}
 }
