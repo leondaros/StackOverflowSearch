@@ -1,0 +1,45 @@
+.container{
+	margin:0 auto;
+	width:70%;
+}
+
+.formulario{
+	padding: 10px 15px 50px 15px;
+	background-color: #E6E6E6;
+}
+
+.formulario fieldset{
+	display: inline;
+	border: 0px solid #000000;
+	padding: 0px 0px 0px 0px;
+	padding-bottom: 1em;
+	margin: 0px 0px;
+	margin-right: 6px;
+	width: 24%;
+}
+
+.botao-busca{
+	float: right;
+	margin-top: 10px;
+	margin-right: 0px;
+	margin-left: 0px;
+	width: 70px;
+	height: 30px;
+	box-sizing: border-box;
+}
+
+.centraliza{
+	margin:0 auto;
+}
+
+input{
+	padding: 5px;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+label{
+	color: #555;
+	margin-bottom: .2em;
+
+}

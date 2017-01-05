@@ -2,29 +2,46 @@
 <html>
 	<head>
 		<title>StackOverflow Search</title>
+		<link rel="stylesheet" href="css/estilos.css">
 	</head>
 	<body>
-		<section>
-			<form>
-				<h1>Javascript - StackOverflow</h1>
-				<fieldset>
-					<label>Page</label>
-					<input id="campo-page" type="number">
-				</fieldset>
-				<fieldset>
-					<label>RPP</label>
-					<input id="campo-rpp" type="number">
-				</fieldset>
-				<fieldset>
-					<label>Sort</label>
-					<input id="campo-sort" type="text">
-				</fieldset>
-				<fieldset>
-					<label>Score</label>
-					<input id="campo-score" type="number">
-				</fieldset>
-				<button>Buscar</button>
-			</form>
-		</section>
+		<div class="container">
+			<h1>Javascript - StackOverflow</h1>
+			<section>
+				<form class="formulario">
+					<h3>Buscar na API</h3>
+					<fieldset>
+						<label>Page</label>
+						<input id="campo-page" type="number">
+					</fieldset>
+					<fieldset>
+						<label>RPP</label>
+						<input id="campo-rpp" type="number">
+					</fieldset>
+					<fieldset>
+						<label>Sort</label>
+						<input id="campo-sort" type="text">
+					</fieldset>
+					<fieldset>
+						<label>Score</label>
+						<input id="campo-score" type="number">
+					</fieldset>
+					<button class="botao-busca">Buscar</button>
+				</form>
+			</section>
+			<section>
+				<table class="centraliza">
+					<thead>
+						<tr>
+							<th>Título</th>
+							<th>Autor</th>
+							<th>Pontuação</th>
+						</tr>
+					</thead>
+					<tbody>
+					</tbody>
+				</table>
+			</section>
+		</div>
 	</body>
 </html>
