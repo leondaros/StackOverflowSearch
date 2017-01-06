@@ -5,48 +5,55 @@ var score = $("#campo-score");
 
 function constroiURL(){
 	event.preventDefault();
+	var valorPage = validaPage();
+	var valorRpp = validaRpp();
 	var valorSort = sort.val();
-	return "https://api.stackexchange.com/2.2/questions?"+validaPreenchimentoCampos()+"order=desc&sort="+valorSort+"&site=stackoverflow";
-}
+	var and = '';
 
-function validaPreenchimentoCampos(){
-	var valorPage = page.val();
-	var valorRpp = rpp.val();
-	if(validaPage(valorPage) && validaRpp(valorRpp)){
-		return "page="+valorPage+"&pagesize="+valorRpp+"&";
+	if(valorPage!=''&&valorRpp!=''){
+		and = "&";
 	}else if(valorPage!=''||valorRpp!=''){
 		alert("Os campos Page e RPP devem possui valores maiores do que 0, caso um deles seja preenchido o outro também deverá ser preenchido");
+	}
+	return "https://api.stackexchange.com/2.2/questions?"+valorPage+""+and+""+valorRpp+""+and+"order=desc&sort="+valorSort+"&site=stackoverflow";
+}
+
+function validaPage(){
+	var valorPage = page.val();
+	if (valorPage!='' && valorPage>0) {
+		return "page="+valorPage;
+	}else{
 		return '';
 	}
-
 }
 
-function validaPage(valorPage){
-	if (valorPage!='' && valorPage>0) {
-		return true;
-	}else{
-		return false;
-	}
-}
-
-function validaRpp(valorRpp){
+function validaRpp(){
+	var valorRpp = rpp.val();
 	if (valorRpp!='' && valorRpp>0) {
-		return true;
+		return "pagesize="+valorRpp;
 	}else{
-		return false;
+		return '';
 	}
 }
-
 function insereElemento(novaLinha){
 	var tabela = $(".tabela");
 	var corpoTabela = tabela.find("tbody");
 
 	corpoTabela.append(novaLinha);
+
+}
+
+function scrollResultados(){
+    var posicaoResultados = $(".resultados").offset().top;
+
+    $("body").stop().animate({
+        scrollTop:posicaoResultados+"px"
+    },600);
 }
 
 function criaNovaLinha(titulo,autor,score,linkAutor,linkPergunta){
 	var linha = $("<tr>").addClass("pergunta");
-	var colunaTitulo = $("<td>");
+	var colunaTitulo = $("<td>").addClass("tituloPergunta");
 	var colunaAutor = $("<td>");
 	var colunaScore = $("<td>").text(score);
 

@@ -16,4 +16,5 @@ function atualizaTabela(items){
 			criaNovaLinha(items[i].title,items[i].owner.display_name,items[i].score,items[i].owner.link,items[i].link);	
 		}
 	}
+	scrollResultados();
 }

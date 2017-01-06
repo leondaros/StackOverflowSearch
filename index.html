@@ -9,7 +9,7 @@
 			<h1>Javascript - StackOverflow</h1>
 			<section>
 				<form class="formulario">
-					<h3>Buscar na API</h3>
+					<h2>Buscar na API</h2>
 					<fieldset>
 						<label>Page</label>
 						<input id="campo-page" type="number" min="1">
@@ -35,7 +35,8 @@
 					<button class="botao-busca">Buscar</button>
 				</form>
 			</section>
-			<section>
+			<section class="resultados">
+				<h2 class="centraliza">Resultados da Pesquisa</h2>
 				<table class="centraliza tabela">
 					<thead>
 						<tr>
@@ -45,6 +46,11 @@
 						</tr>
 					</thead>
 					<tbody>
+						<tr>
+							<td>Título</td>
+							<td>Autor</td>
+							<td>Pontuação</td>
+						</tr>
 					</tbody>
 				</table>
 			</section>
