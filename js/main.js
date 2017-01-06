@@ -7,6 +7,8 @@ page.on('input', function(){
 	var input=$(this).val();
 	if(input<=0){
 		$(this).val('');
+	}else if (input>=100) {
+		$(this).val(99);
 	}
 });
 
@@ -14,6 +16,8 @@ rpp.on('input', function(){
 	var input=$(this).val();
 	if(input<=0){
 		$(this).val('');
+	}else if (input>=100) {
+		$(this).val(99);
 	}
 });
 
@@ -27,7 +31,6 @@ function constroiURL(){
 	if(valorSort!=''){
 		valorSort="&sort="+valorSort;
 	}
-
 	return "https://api.stackexchange.com/2.2/questions?"+query+"order=desc"+valorSort+"&site=stackoverflow";
 }
 
@@ -49,7 +52,6 @@ function insereElemento(novaLinha){
 	var corpoTabela = tabela.find("tbody");
 
 	corpoTabela.append(novaLinha);
-
 }
 
 function scrollResultados(){
@@ -81,6 +83,10 @@ function criaNovaLinha(titulo,autor,score,linkAutor,linkPergunta){
 
 function limpaTabela(){
 	$("tbody").empty();
+}
+
+function limpaCampos(){
+	$("form")[0].reset();
 }
 
 function filtraScore(scoreBusca){

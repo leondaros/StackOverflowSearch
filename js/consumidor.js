@@ -11,6 +11,7 @@ function consomeAPI(){
 
 function atualizaTabela(items){
 	limpaTabela();
+	limpaCampos();
 	for (var i = 0; i < items.length; i++) {
 		if(filtraScore(items[i].score)){
 			criaNovaLinha(items[i].title,items[i].owner.display_name,items[i].score,items[i].owner.link,items[i].link);	
