@@ -1,0 +1,97 @@
+.container{
+	margin:0 auto;
+	width:70%;
+}
+
+.formulario{
+	padding: 10px 15px 50px 15px;
+	background-color: #E6E6E6;
+}
+
+.formulario fieldset{
+	display: inline;
+	border: 0px;
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px;
+	margin-right: 6px;
+	width: 24%;
+}
+
+.botao-busca{
+	float: right;
+	margin-top: 10px;
+	margin-right: 0px;
+	margin-left: 0px;
+	width: 70px;
+	height: 30px;
+	background-color: #8AC34E;
+	box-sizing: border-box;
+	border-radius: 4px;
+}
+
+.centraliza{
+	margin:0 auto;
+	text-align: center;
+}
+
+.pergunta{
+	border-bottom: 1px solid #ccc;
+	margin-bottom: 5px;
+}
+
+.resultados h2{
+	font-size: 3em;
+	display: block;
+	padding-bottom: .5em;
+	border-bottom: 1px solid #ccc;
+	margin-top: .5em;
+	margin-bottom: .5em;
+}
+
+.tituloPergunta{
+	text-align: left;
+}
+
+.tabela{
+	width: 100%;
+	margin-bottom : .5em;
+	border-collapse: collapse;
+
+}
+
+body{
+	overflow: scroll;
+	font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+	font-size: 14px;
+}
+
+form h2{
+	color: grey;
+	font-style: italic;
+}
+
+input,select{
+	padding: 5px;
+	width: 100%;
+	box-sizing: border-box;
+	border-radius: 4px;
+}
+
+label{
+	color: #555;
+	margin-bottom: .2em;
+}
+
+td, th {
+	padding: .7em;
+	margin: 0;
+}
+
+th{
+	font-weight: bold;
+	background-color: #E6E6E6;
+}
+
+tr{
+	border-bottom: 3px solid #E6E6E6;
+}
