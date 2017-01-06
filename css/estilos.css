@@ -67,6 +67,7 @@ body{
 
 form h2{
 	color: grey;
+	font-style: italic;
 }
 
 input,select{

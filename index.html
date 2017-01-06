@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<title>StackOverflow Search</title>
+		<meta charset="utf-8">
 		<link rel="stylesheet" href="css/estilos.css">
 	</head>
 	<body>
@@ -21,11 +22,12 @@
 					<fieldset>
 						<label>Sort</label>
 						<select id="campo-sort">
-						  <option value="activity" selected>Activity</option>
-						  <option value="creation">Creation</option>
-						  <option value="votes">Votes</option>
-						  <option value="week">Week</option>
-						  <option value="month">Month</option>
+							<option value="" selected>None</option>
+							<option value="activity">Activity</option>
+							<option value="creation">Creation</option>
+							<option value="votes">Votes</option>
+							<option value="week">Week</option>
+							<option value="month">Month</option>
 						</select>
 					</fieldset>
 					<fieldset>
@@ -46,11 +48,6 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td>Título</td>
-							<td>Autor</td>
-							<td>Pontuação</td>
-						</tr>
 					</tbody>
 				</table>
 			</section>

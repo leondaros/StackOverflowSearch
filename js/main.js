@@ -3,38 +3,47 @@ var rpp = $("#campo-rpp");
 var sort = $("#campo-sort");
 var score = $("#campo-score");
 
+page.on('input', function(){
+	var input=$(this).val();
+	if(input<=0){
+		$(this).val('');
+	}
+});
+
+rpp.on('input', function(){
+	var input=$(this).val();
+	if(input<=0){
+		$(this).val('');
+	}
+});
+
 function constroiURL(){
-	event.preventDefault();
-	var valorPage = validaPage();
-	var valorRpp = validaRpp();
-	var valorSort = sort.val();
-	var and = '';
-
-	if(valorPage!=''&&valorRpp!=''){
-		and = "&";
-	}else if(valorPage!=''||valorRpp!=''){
-		alert("Os campos Page e RPP devem possui valores maiores do que 0, caso um deles seja preenchido o outro também deverá ser preenchido");
-	}
-	return "https://api.stackexchange.com/2.2/questions?"+valorPage+""+and+""+valorRpp+""+and+"order=desc&sort="+valorSort+"&site=stackoverflow";
-}
-
-function validaPage(){
 	var valorPage = page.val();
-	if (valorPage!='' && valorPage>0) {
-		return "page="+valorPage;
+	var valorRpp = rpp.val();
+	var valorSort = sort.val();
+
+	var query = validaInputPagina(valorPage,valorRpp);
+
+	if(valorSort!=''){
+		valorSort="&sort="+valorSort;
+	}
+
+	return "https://api.stackexchange.com/2.2/questions?"+query+"order=desc"+valorSort+"&site=stackoverflow";
+}
+
+function validaInputPagina(valorPage,valorRpp){
+	if (valorPage!='' && valorRpp!='') {
+		valorPage = "page="+valorPage+"&";
+		valorRpp = "pagesize="+valorRpp+"&";
+		return ""+valorPage+""+valorRpp;
+	}else if(valorPage!=''||valorRpp!=''){
+		alert("Os campos Page e RPP devem possuir valores maiores do que 0, caso um deles seja preenchido o outro também deverá ser preenchido");
+		return '';
 	}else{
 		return '';
 	}
 }
 
-function validaRpp(){
-	var valorRpp = rpp.val();
-	if (valorRpp!='' && valorRpp>0) {
-		return "pagesize="+valorRpp;
-	}else{
-		return '';
-	}
-}
 function insereElemento(novaLinha){
 	var tabela = $(".tabela");
 	var corpoTabela = tabela.find("tbody");
