@@ -85,13 +85,10 @@ function limpaTabela(){
 	$("tbody").empty();
 }
 
-function limpaCampos(){
-	$("form")[0].reset();
-}
-
 function filtraScore(scoreBusca){
 	var valorScore = score.val();
-	if(valorScore<=scoreBusca){
+	console.log("pudim "+valorScore);
+	if(valorScore<=scoreBusca||valorScore==''){
 		return true;
 	}else{
 		return false;
