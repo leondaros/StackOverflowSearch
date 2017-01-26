@@ -87,7 +87,6 @@ function limpaTabela(){
 
 function filtraScore(scoreBusca){
 	var valorScore = score.val();
-	console.log("pudim "+valorScore);
 	if(valorScore<=scoreBusca||valorScore==''){
 		return true;
 	}else{
