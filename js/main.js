@@ -4,21 +4,18 @@ var sort = $("#sort-input");
 var score = $("#score-input");
 
 page.on('input', function(){
-	fieldBehavior($(this));
+	if($(this).val()<=0){
+		$(this).val('');
+	}
 });
 
 rpp.on('input', function(){
-	fieldBehavior($(this));
-});
-
-function fieldBehavior(field){
-	var input=field.val();
-	if(input<=0){
-		field.val('');
-	}else if (input>100) {
-		field.val(99);
+	if($(this).val()<=0){
+		$(this).val('');
+	}else if ($(this).val()>100) {
+		$(this).val(100);
 	}
-}
+});
 
 function buildURL(){
 	var pageValue = page.val();
