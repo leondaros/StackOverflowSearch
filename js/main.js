@@ -4,22 +4,22 @@ var sort = $("#campo-sort");
 var score = $("#campo-score");
 
 page.on('input', function(){
-	var input=$(this).val();
-	if(input<=0){
-		$(this).val('');
-	}else if (input>=100) {
-		$(this).val(99);
-	}
+	fieldBehavior($(this));
 });
 
 rpp.on('input', function(){
-	var input=$(this).val();
-	if(input<=0){
-		$(this).val('');
-	}else if (input>=100) {
-		$(this).val(99);
-	}
+	fieldBehavior($(this));
 });
+
+function fieldBehavior(field){
+	console.log(field.val());
+	var input=field.val();
+	if(input<=0){
+		field.val('');
+	}else if (input>=100) {
+		field.val(99);
+	}
+}
 
 function constroiURL(){
 	var valorPage = page.val();
@@ -40,7 +40,7 @@ function validaInputPagina(valorPage,valorRpp){
 		valorRpp = "pagesize="+valorRpp+"&";
 		return ""+valorPage+""+valorRpp;
 	}else if(valorPage!=''||valorRpp!=''){
-		alert("Os campos Page e RPP devem possuir valores maiores do que 0, caso um deles seja preenchido o outro também deverá ser preenchido");
+		alert("Os campos Page e RPP devem possuir valores maiores do que 0, Caso um dos campos Page e RPP seja preenchido o outro também deverá ser preenchido");
 		return '';
 	}else{
 		return '';
