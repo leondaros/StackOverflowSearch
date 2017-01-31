@@ -1,20 +1,20 @@
 $(function(){
-	$(".botao-busca").click(consomeAPI);
+	$(".search-button").click(requestApiData);
 });
 
-function consomeAPI(){
+function requestApiData(){
 	event.preventDefault();
-	$.get(constroiURL(),function(data){
-		atualizaTabela(data.items);
+	$.get(buildURL(),function(data){
+		refreshTable(data.items);
 	});
 }
 
-function atualizaTabela(items){
-	limpaTabela();
+function refreshTable(items){
+	clearTable();
 	for (var i = 0; i < items.length; i++) {
-		if(filtraScore(items[i].score)){
-			criaNovaLinha(items[i].title,items[i].owner.display_name,items[i].score,items[i].owner.link,items[i].link);	
+		if(scoreFilter(items[i].score)){
+			createNewLine(items[i].title,items[i].owner.display_name,items[i].score,items[i].owner.link,items[i].link);	
 		}
 	}
-	scrollResultados();
+	scrollToResult();
 }

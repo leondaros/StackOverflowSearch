@@ -3,21 +3,7 @@
 	width:70%;
 }
 
-.formulario{
-	padding: 10px 15px 50px 15px;
-	background-color: #E6E6E6;
-}
-
-.formulario fieldset{
-	display: inline;
-	border: 0px;
-	padding: 0px 0px 0px 0px;
-	margin: 0px 0px;
-	margin-right: 6px;
-	width: 24%;
-}
-
-.botao-busca{
+.search-button{
 	float: right;
 	margin-top: 10px;
 	margin-right: 0px;
@@ -29,17 +15,17 @@
 	border-radius: 4px;
 }
 
-.centraliza{
+.center{
 	margin:0 auto;
 	text-align: center;
 }
 
-.pergunta{
+.question{
 	border-bottom: 1px solid #ccc;
 	margin-bottom: 5px;
 }
 
-.resultados h2{
+.search-results h2{
 	font-size: 3em;
 	display: block;
 	padding-bottom: .5em;
@@ -48,8 +34,22 @@
 	margin-bottom: .5em;
 }
 
-.tituloPergunta{
+.titleQuestion{
 	text-align: left;
+}
+
+form{
+	padding: 10px 15px 50px 15px;
+	background-color: #E6E6E6;
+}
+
+form fieldset{
+	display: inline;
+	border: 0px;
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px;
+	margin-right: 6px;
+	width: 24%;
 }
 
 table{
