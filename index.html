@@ -9,19 +9,19 @@
 		<div class="container">
 			<h1>Javascript - StackOverflow</h1>
 			<section>
-				<form class="formulario">
+				<form>
 					<h2>Buscar na API</h2>
 					<fieldset>
 						<label>Page</label>
-						<input id="campo-page" type="number" min="1" max="99">
+						<input id="page-input" type="number" min="1">
 					</fieldset>
 					<fieldset>
 						<label>RPP</label>
-						<input id="campo-rpp" type="number" min="1" max="99">
+						<input id="rpp-input" type="number" min="1" max="99">
 					</fieldset>
 					<fieldset>
 						<label>Sort</label>
-						<select id="campo-sort">
+						<select id="sort-input">
 							<option value="" selected>None</option>
 							<option value="activity">Activity</option>
 							<option value="creation">Creation</option>
@@ -32,14 +32,14 @@
 					</fieldset>
 					<fieldset>
 						<label>Score</label>
-						<input id="campo-score" type="number">
+						<input id="score-input" type="number">
 					</fieldset>
-					<button class="botao-busca">Buscar</button>
+					<button class="search-button">Buscar</button>
 				</form>
 			</section>
-			<section class="resultados">
-				<h2 class="centraliza">Resultados da Pesquisa</h2>
-				<table class="centraliza tabela">
+			<section class="search-results">
+				<h2 class="center">Resultados da Pesquisa</h2>
+				<table class="center table">
 					<thead>
 						<tr>
 							<th>Título</th>

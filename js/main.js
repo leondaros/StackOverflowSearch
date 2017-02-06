@@ -1,93 +1,89 @@
-var page = $("#campo-page");
-var rpp = $("#campo-rpp");
-var sort = $("#campo-sort");
-var score = $("#campo-score");
+var page = $("#page-input");
+var rpp = $("#rpp-input");
+var sort = $("#sort-input");
+var score = $("#score-input");
 
 page.on('input', function(){
-	var input=$(this).val();
-	if(input<=0){
+	if($(this).val()<=0){
 		$(this).val('');
-	}else if (input>=100) {
-		$(this).val(99);
 	}
 });
 
 rpp.on('input', function(){
-	var input=$(this).val();
-	if(input<=0){
+	if($(this).val()<=0){
 		$(this).val('');
-	}else if (input>=100) {
-		$(this).val(99);
+	}else if ($(this).val()>100) {
+		$(this).val(100);
 	}
 });
 
-function constroiURL(){
-	var valorPage = page.val();
-	var valorRpp = rpp.val();
-	var valorSort = sort.val();
+function buildURL(){
+	var pageValue = page.val();
+	var rppValue = rpp.val();
+	var sortValue = sort.val();
 
-	var query = validaInputPagina(valorPage,valorRpp);
+	var query = validateInput(pageValue,rppValue);
 
-	if(valorSort!=''){
-		valorSort="&sort="+valorSort;
+	if(sortValue!=''){
+		sortValue="&sort="+sortValue;
 	}
-	return "https://api.stackexchange.com/2.2/questions?"+query+"order=desc"+valorSort+"&site=stackoverflow";
+	return "https://api.stackexchange.com/2.2/questions?"+query+"order=desc"+sortValue+"&site=stackoverflow";
 }
 
-function validaInputPagina(valorPage,valorRpp){
-	if (valorPage!='' && valorRpp!='') {
-		valorPage = "page="+valorPage+"&";
-		valorRpp = "pagesize="+valorRpp+"&";
-		return ""+valorPage+""+valorRpp;
-	}else if(valorPage!=''||valorRpp!=''){
-		alert("Os campos Page e RPP devem possuir valores maiores do que 0, caso um deles seja preenchido o outro também deverá ser preenchido");
+function validateInput(pageValue,rppValue){
+	if (pageValue!='' && rppValue!='') {
+		pageValue = "page="+pageValue+"&";
+		rppValue = "pagesize="+rppValue+"&";
+		return ""+pageValue+""+rppValue;
+	}else if(pageValue!=''||rppValue!=''){
+		alert("Caso um dos campos Page e RPP seja preenchido o outro também deverá ser preenchido");
 		return '';
 	}else{
 		return '';
 	}
 }
 
-function insereElemento(novaLinha){
-	var tabela = $(".tabela");
-	var corpoTabela = tabela.find("tbody");
+function insertElement(newLine){
+	var table = $(".table");
+	var tableBody = table.find("tbody");
 
-	corpoTabela.append(novaLinha);
+	tableBody.append(newLine);
 }
 
-function scrollResultados(){
-    var posicaoResultados = $(".resultados").offset().top;
+function scrollToResult(){
+    var resultPosition = $(".search-results").offset().top;
 
     $("body").stop().animate({
-        scrollTop:posicaoResultados+"px"
+        scrollTop:resultPosition+"px"
     },600);
 }
 
-function criaNovaLinha(titulo,autor,score,linkAutor,linkPergunta){
-	var linha = $("<tr>").addClass("pergunta");
-	var colunaTitulo = $("<td>").addClass("tituloPergunta");
-	var colunaAutor = $("<td>");
-	var colunaScore = $("<td>").text(score);
+function createNewLine(title,author,score,authorLink,questionLink){
+	var newLine = $("<tr>").addClass("question");
+	var titleColumn = $("<td>").addClass("titleQuestion");
+	var authorColumn = $("<td>");
+	var scoreColumn  = $("<td>").text(score);
 
-	var linkColunaAutor = $("<a>").attr("href",linkAutor).text(autor);
-	var linkColunaPergunta = $("<a>").attr("href",linkPergunta).text(titulo);
+	var linkAuthorColumn = $("<a>").attr("href",authorLink).text(author);
+	var linkQuestionColumn = $("<a>").attr("href",questionLink).text(title);
 
-	colunaAutor.append(linkColunaAutor);
-	colunaTitulo.append(linkColunaPergunta);
+	authorColumn.append(linkAuthorColumn);
+	titleColumn.append(linkQuestionColumn);
 
-	linha.append(colunaTitulo);
-	linha.append(colunaAutor);
-	linha.append(colunaScore);
+	newLine.append(titleColumn);
+	newLine.append(authorColumn);
+	newLine.append(scoreColumn);
 
-	insereElemento(linha);
+	insertElement(newLine);
 }
 
-function limpaTabela(){
+function clearTable(){
 	$("tbody").empty();
 }
 
-function filtraScore(scoreBusca){
-	var valorScore = score.val();
-	if(valorScore<=scoreBusca||valorScore==''){
+function scoreFilter(dataScore){
+	var scoreValue = score.val();
+	if(scoreValue<=dataScore||scoreValue==''){
 		return true;
 	}else{
 		return false;
